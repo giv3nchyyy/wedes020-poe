@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - Green Futures Initiative</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>🌱 Green Futures Initiative</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Join Our Volunteer Team</h1>
+                <p>Make a difference in your community and help grow sustainable futures</p>
+            </div>
+        </section>
+
+        <section class="volunteer-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-content">
+                        <h2>Why Volunteer With Us?</h2>
+                        <p>Our volunteers are the heart of Green Futures Initiative. Whether you're passionate about gardening, education, or community development, there's a place for you in our team.</p>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <h3>🌱 Make a Real Impact</h3>
+                                <p>Help transform schools and empower the next generation of environmental leaders.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h3>📚 Learn New Skills</h3>
+                                <p>Gain experience in sustainable gardening, education, and community organizing.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h3>👥 Build Community</h3>
+                                <p>Connect with like-minded individuals passionate about environmental change.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h3>💼 Professional Development</h3>
+                                <p>Great opportunity for students and professionals in environmental fields.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="volunteer-options">
+                        <h3>Volunteer Opportunities</h3>
+                        <div class="option-card">
+                            <h4>School Garden Volunteer</h4>
+                            <p>Help establish and maintain food gardens at partner schools</p>
+                            <ul>
+                                <li>Weekly commitment: 4-6 hours</li>
+                                <li>Gardening experience helpful</li>
+                                <li>Working with children</li>
+                            </ul>
+                        </div>
+                        <div class="option-card">
+                            <h4>Education Assistant</h4>
+                            <p>Support environmental education programmes in schools</p>
+                            <ul>
+                                <li>Flexible hours</li>
+                                <li>Teaching/mentoring experience</li>
+                                <li>Background check required</li>
+                            </ul>
+                        </div>
+                        <div class="option-card">
+                            <h4>Weekend Warrior</h4>
+                            <p>Join our monthly community garden projects</p>
+                            <ul>
+                                <li>One Saturday per month</li>
+                                <li>All skill levels welcome</li>
+                                <li>Great for corporate groups</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="volunteer-form-section">
+            <div class="container">
+                <h2>Apply to Volunteer</h2>
+                <p>Fill out the form below and we'll contact you about available opportunities.</p>
+                
+                <form class="volunteer-form" id="volunteerForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Your Location *</label>
+                        <select id="location" name="location" required>
+                            <option value="">Select your area</option>
+                            <option value="cape-town">Cape Town</option>
+                            <option value="johannesburg">Johannesburg</option>
+                            <option value="pretoria">Pretoria</option>
+                            <option value="durban">Durban</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Area of Interest *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select your interest</option>
+                            <option value="gardening">School Garden Volunteer</option>
+                            <option value="education">Education Assistant</option>
+                            <option value="weekend">Weekend Warrior</option>
+                            <option value="flexible">Flexible - Any Opportunity</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availability">Weekly Availability (hours) *</label>
+                        <select id="availability" name="availability" required>
+                            <option value="">Select availability</option>
+                            <option value="1-3">1-3 hours</option>
+                            <option value="4-6">4-6 hours</option>
+                            <option value="7-10">7-10 hours</option>
+                            <option value="10+">10+ hours</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Relevant Experience</label>
+                        <textarea id="experience" name="experience" rows="4" placeholder="Tell us about any gardening, teaching, or volunteer experience..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to volunteer with us? *</label>
+                        <textarea id="motivation" name="motivation" rows="4" required placeholder="Share your motivation for joining Green Futures Initiative..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Send me updates about volunteer opportunities and events</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Do I need gardening experience?</h3>
+                        <p>No! We welcome volunteers of all skill levels. We provide training and guidance for all our garden projects.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the time commitment?</h3>
+                        <p>We have flexible opportunities ranging from 2 hours per week to monthly weekend projects.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Are there age restrictions?</h3>
+                        <p>Volunteers must be 16+. Those under 18 need parental consent. School projects are great for student volunteers!</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do you accept corporate groups?</h3>
+                        <p>Yes! We love corporate volunteer days. Contact us to arrange a team-building garden project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Green Futures Initiative. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

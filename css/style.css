@@ -328,3 +328,328 @@ footer {
         text-align: center;
     }
 }
+/* Impact Page Styles */
+.impact-stories {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.impact-stories h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #2E8B57;
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-card h3 {
+    color: #2E8B57;
+    margin-bottom: 0.5rem;
+}
+
+.location {
+    color: #FF6B35;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.impact-stats {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.impact-stats span {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.impact-numbers {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #3CB371 0%, #2E8B57 100%);
+    color: white;
+}
+
+.impact-numbers h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.number-item {
+    text-align: center;
+}
+
+.number-item h3 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonials {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.testimonials h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #FF6B35;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.testimonial cite {
+    color: #666;
+    font-weight: 600;
+}
+/* Volunteer Page Styles */
+.volunteer-info {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-content h2 {
+    color: #2E8B57;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.info-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3CB371;
+}
+
+.benefit-item h3 {
+    color: #2E8B57;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.volunteer-options {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.volunteer-options h3 {
+    color: #2E8B57;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.option-card {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.option-card h4 {
+    color: #2E8B57;
+    margin-bottom: 0.5rem;
+}
+
+.option-card ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+}
+
+.option-card li {
+    margin-bottom: 0.3rem;
+    color: #666;
+}
+
+.volunteer-form-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.volunteer-form-section h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.volunteer-form-section p {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+}
+
+.volunteer-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2E8B57;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.faq {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.faq h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #FF6B35;
+}
+
+.faq-item h3 {
+    color: #2E8B57;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design for Volunteer Page */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .volunteer-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .volunteer-options {
+        order: -1;
+    }
+}
