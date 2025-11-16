@@ -653,3 +653,199 @@ footer {
         order: -1;
     }
 }
+/* Contact Page Styles */
+.contact-info {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-details h2 {
+    color: #2E8B57;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.contact-details p {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-method {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3CB371;
+}
+
+.contact-method h3 {
+    color: #2E8B57;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.contact-method p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.contact-form-container {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.contact-form-container h2 {
+    color: #2E8B57;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.locations {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.locations h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.locations > .container > p {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.location-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+}
+
+.location-card h3 {
+    color: #2E8B57;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.location-card p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.location-card strong {
+    color: #333;
+}
+
+.emergency-contact {
+    padding: 3rem 2rem;
+    background-color: white;
+}
+
+.emergency-banner {
+    background: linear-gradient(135deg, #FF6B35 0%, #e55a2b 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.emergency-banner h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.emergency-banner p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Enhanced Form Styles for Contact Page */
+.contact-form .form-group {
+    margin-bottom: 0;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Responsive Design for Contact Page */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form-container {
+        order: -1;
+    }
+    
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .emergency-banner {
+        padding: 1.5rem;
+    }
+    
+    .emergency-banner h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Additional Form Enhancements */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+    border-color: #dc3545;
+}
+
+.form-group input:valid,
+.form-group select:valid,
+.form-group textarea:valid {
+    border-color: #28a745;
+}
