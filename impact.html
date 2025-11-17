@@ -3,120 +3,985 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Impact - Green Futures Initiative</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <title>Our Impact | Green Futures Initiative</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --accent: #8bc34a;
+            --text-dark: #333;
+            --text-light: #666;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .impact-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .impact-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .impact-hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        /* Stats Overview */
+        .stats-overview {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Impact Areas */
+        .impact-areas {
+            padding: 6rem 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .area-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .area-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .area-icon {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .area-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        }
+        
+        .area-content {
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .area-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .area-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .mini-stat {
+            text-align: center;
+        }
+        
+        .mini-stat .number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .mini-stat .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Progress Bars */
+        .progress-section {
+            padding: 6rem 0;
+            background-color: var(--background);
+        }
+        
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .progress-item {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .progress-percentage {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+            border-radius: 5px;
+            width: 0%;
+            transition: width 2s ease-in-out;
+        }
+        
+        /* Interactive Map */
+        .impact-map {
+            padding: 6rem 0;
+            background-color: var(--white);
+        }
+        
+        .map-container {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .map-point:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: var(--secondary);
+        }
+        
+        .map-point::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+        
+        .map-tooltip {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: var(--white);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slide {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-role {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+        
+        /* Environmental Impact */
+        .environmental-impact {
+            padding: 6rem 0;
+            background-color: var(--background);
+        }
+        
+        .impact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .impact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .impact-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
     <header>
-        <nav>
-            <div class="logo">
-                <h2>🌱 Green Futures Initiative</h2>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="impact.html">Our Impact</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Green Futures Initiative</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="impact.html" class="active">Our Impact</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Our Impact</h1>
-                <p>Transforming schools and communities through sustainable food gardens</p>
+    <!-- Hero Section -->
+    <section class="impact-hero">
+        <div class="container">
+            <div class="impact-hero-content">
+                <h1>Measuring Our Impact</h1>
+                <p>See how we're transforming communities and creating sustainable futures through environmental action</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="impact-stories">
-            <div class="container">
-                <h2>Success Stories</h2>
-                <div class="stories-grid">
-                    <div class="story-card">
-                        <h3>Khayelitsha Primary School</h3>
-                        <p class="location">Cape Town, Western Cape</p>
-                        <p>Transformed a barren playground into a thriving food garden that now provides fresh vegetables for the school feeding scheme and serves as an outdoor classroom for 450 students.</p>
-                        <div class="impact-stats">
-                            <span>🥬 12 vegetable varieties</span>
-                            <span>👥 450 students impacted</span>
-                            <span>📚 Outdoor classroom created</span>
+    <!-- Stats Overview -->
+    <section class="stats-overview">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" data-target="28">0</span>
+                    <span class="stat-label">Community Gardens</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="5200">0</span>
+                    <span class="stat-label">Volunteers Engaged</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Partner Schools</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="12500">0</span>
+                    <span class="stat-label">Pounds of Produce</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Areas -->
+    <section class="impact-areas">
+        <div class="container">
+            <h2 class="section-title">Areas of Impact</h2>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="area-content">
+                        <h3>Community Gardens</h3>
+                        <p>Transforming vacant urban lots into thriving community spaces that provide fresh produce and gathering places for neighborhoods.</p>
+                        <div class="area-stats">
+                            <div class="mini-stat">
+                                <span class="number">28</span>
+                                <span class="label">Gardens</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="number">1,200+</span>
+                                <span class="label">Families Served</span>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="story-card">
-                        <h3>Siyazama High School</h3>
-                        <p class="location">Johannesburg, Gauteng</p>
-                        <p>Established a sustainable garden that not only provides food but also generates income through local vegetable sales, funding school resources and extracurricular activities.</p>
-                        <div class="impact-stats">
-                            <span>💰 R15,000 annual income</span>
-                            <span>🌱 Composting system</span>
-                            <span>🏆 Community award winner</span>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="area-content">
+                        <h3>Education Programs</h3>
+                        <p>Bringing environmental education to students of all ages through hands-on gardening and sustainability workshops.</p>
+                        <div class="area-stats">
+                            <div class="mini-stat">
+                                <span class="number">3,000+</span>
+                                <span class="label">Students Reached</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="number">500+</span>
+                                <span class="label">Workshop Hours</span>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="story-card">
-                        <h3>Eco-Warriors Programme</h3>
-                        <p class="location">National Initiative</p>
-                        <p>Our student-led environmental clubs have empowered youth to become environmental advocates in their communities, leading recycling drives and conservation projects.</p>
-                        <div class="impact-stats">
-                            <span>👑 150 eco-warriors trained</span>
-                            <span>♻️ 5 tons recycled</span>
-                            <span>🌍 3 community projects</span>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon" style="background-image: url('https://images.unsplash.com/photo-1559027615-cfa462850979?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="area-content">
+                        <h3>Food Security</h3>
+                        <p>Increasing access to fresh, healthy produce in food desert communities through our network of gardens.</p>
+                        <div class="area-stats">
+                            <div class="mini-stat">
+                                <span class="number">12,500+</span>
+                                <span class="label">Lbs of Produce</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="number">8</span>
+                                <span class="label">Neighborhoods</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="impact-numbers">
-            <div class="container">
-                <h2>By The Numbers</h2>
-                <div class="numbers-grid">
-                    <div class="number-item">
-                        <h3>50+</h3>
-                        <p>Schools Transformed</p>
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <h2 class="section-title">2023 Progress Towards Goals</h2>
+            <div class="progress-grid">
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">New Community Gardens</span>
+                        <span class="progress-percentage">75%</span>
                     </div>
-                    <div class="number-item">
-                        <h3>5,000+</h3>
-                        <p>Students Reached Annually</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
                     </div>
-                    <div class="number-item">
-                        <h3>25,000+</h3>
-                        <p>Meals Provided</p>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Student Education Reach</span>
+                        <span class="progress-percentage">90%</span>
                     </div>
-                    <div class="number-item">
-                        <h3>250+</h3>
-                        <p>Active Volunteers</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Volunteer Recruitment</span>
+                        <span class="progress-percentage">110%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Carbon Reduction Target</span>
+                        <span class="progress-percentage">60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="60"></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="testimonials">
-            <div class="container">
-                <h2>What Schools Say</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <p>"The garden has become the heart of our school. Students who struggled in traditional classrooms are now thriving as they learn through doing."</p>
-                        <cite>– Mr. Ndlovu, Principal</cite>
-                    </div>
-                    <div class="testimonial">
-                        <p>"Our students now understand where food comes from and have developed a real connection to the environment. The change has been remarkable."</p>
-                        <cite>– Ms. Petersen, Science Teacher</cite>
-                    </div>
+    <!-- Interactive Map -->
+    <section class="impact-map">
+        <div class="container">
+            <h2 class="section-title">Our Garden Locations</h2>
+            <div class="map-container" id="impactMap">
+                <!-- Map points will be added dynamically -->
+                <div class="map-tooltip" id="mapTooltip"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Community Stories</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"The community garden transformed our neighborhood. Not only do we have fresh vegetables, but it's brought our community closer together. My children love helping in the garden and learning about where their food comes from."</p>
+                    <p class="testimonial-author">Maria Gonzalez</p>
+                    <p class="testimonial-role">Maple Street Garden Volunteer</p>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"As a teacher, I've seen firsthand how the school garden program engages students in ways the classroom can't. They're excited to learn about science, nutrition, and sustainability when they can get their hands dirty."</p>
+                    <p class="testimonial-author">James Wilson</p>
+                    <p class="testimonial-role">Jefferson Elementary Teacher</p>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"Before the garden came to our neighborhood, it was hard to find fresh produce. Now we have access to healthy food and the knowledge to grow our own. This program has been life-changing for my family."</p>
+                    <p class="testimonial-author">Robert Chen</p>
+                    <p class="testimonial-role">Community Member</p>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Environmental Impact -->
+    <section class="environmental-impact">
+        <div class="container">
+            <h2 class="section-title">Environmental Benefits</h2>
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <div class="impact-icon">🌿</div>
+                    <h3>Carbon Reduction</h3>
+                    <p>Our gardens help sequester an estimated 15 tons of CO2 annually through increased vegetation.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">🐝</div>
+                    <h3>Biodiversity</h3>
+                    <p>We've introduced 50+ native plant species supporting local pollinators and wildlife.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">💧</div>
+                    <h3>Water Management</h3>
+                    <p>Rainwater harvesting systems collect over 10,000 gallons annually, reducing runoff.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">🌡️</div>
+                    <h3>Urban Cooling</h3>
+                    <p>Green spaces reduce urban heat island effect, lowering temperatures by 2-3°C.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Help Us Grow Our Impact</h2>
+            <p>Join our mission to create more sustainable communities through volunteering, partnerships, or donations.</p>
+            <a href="volunteer.html" class="btn">Become a Volunteer</a>
+            <a href="contact.html" class="btn btn-secondary">Support Our Work</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Green Futures Initiative. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Green Futures Initiative</h3>
+                    <p>Creating sustainable communities through environmental education and garden development.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@greenfutures.org</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: 123 Garden Street, Green City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Green Futures Initiative. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Animated counter for statistics
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stats counter animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stat = entry.target;
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = target.toLocaleString();
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current).toLocaleString();
+                            }
+                        }, 30);
+                        
+                        observer.unobserve(stat);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statNumbers.forEach(stat => {
+                observer.observe(stat);
+            });
+            
+            // Progress bar animation
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            const progressObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 300);
+                        progressObserver.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            progressBars.forEach(bar => {
+                progressObserver.observe(bar);
+            });
+            
+            // Interactive map
+            const mapContainer = document.getElementById('impactMap');
+            const tooltip = document.getElementById('mapTooltip');
+            
+            // Garden locations data
+            const gardenLocations = [
+                { x: 20, y: 30, name: "Maple Street Garden", produce: "2,800 lbs", volunteers: 240 },
+                { x: 60, y: 40, name: "Jefferson Elementary", produce: "1,200 lbs", volunteers: 180 },
+                { x: 40, y: 70, name: "Riverside Community", produce: "3,500 lbs", volunteers: 320 },
+                { x: 75, y: 60, name: "Northside Gardens", produce: "2,100 lbs", volunteers: 190 },
+                { x: 30, y: 50, name: "Central Park Plot", produce: "1,800 lbs", volunteers: 210 },
+                { x: 65, y: 25, name: "West End Collective", produce: "1,500 lbs", volunteers: 160 }
+            ];
+            
+            // Create map points
+            gardenLocations.forEach(location => {
+                const point = document.createElement('div');
+                point.className = 'map-point';
+                point.style.left = `${location.x}%`;
+                point.style.top = `${location.y}%`;
+                point.setAttribute('data-name', location.name);
+                point.setAttribute('data-produce', location.produce);
+                point.setAttribute('data-volunteers', location.volunteers);
+                
+                point.addEventListener('mouseenter', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    tooltip.innerHTML = `
+                        <strong>${this.getAttribute('data-name')}</strong><br>
+                        Produce: ${this.getAttribute('data-produce')}<br>
+                        Volunteers: ${this.getAttribute('data-volunteers')}
+                    `;
+                    tooltip.style.left = `${rect.left + window.scrollX}px`;
+                    tooltip.style.top = `${rect.top + window.scrollY - 100}px`;
+                    tooltip.style.opacity = '1';
+                });
+                
+                point.addEventListener('mouseleave', function() {
+                    tooltip.style.opacity = '0';
+                });
+                
+                mapContainer.appendChild(point);
+            });
+            
+            // Testimonial slider
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlide = n;
+                if (currentSlide >= slides.length) currentSlide = 0;
+                if (currentSlide < 0) currentSlide = slides.length - 1;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Auto-advance slides
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

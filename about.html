@@ -3,89 +3,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Green Futures Initiative</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>About Us | Green Futures Initiative</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --text-dark: #333;
+            --text-light: #666;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .about-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .mission h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .mission p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .values h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 5rem 0;
+        }
+        
+        .team h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-img {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-info p {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .timeline h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 5rem 0;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .stats h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
     <header>
-        <nav>
-            <div class="logo">
-                <h2>🌱 Green Futures Initiative</h2>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="impact.html">Our Impact</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Green Futures Initiative</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="impact.html">Our Impact</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
                 <h1>About Green Futures Initiative</h1>
-                <p>Learn about our journey, mission, and the team driving change</p>
+                <p>Learn about our mission, values, and the passionate team behind our environmental efforts</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="our-story">
-            <div class="container">
-                <h2>Our Story</h2>
-                <p>Founded in 2018 by a group of passionate environmental science students from the University of Cape Town, Green Futures Initiative began as a response to the growing disconnect between urban youth and their natural environment.</p>
-                
-                <p>What started as a weekend volunteer project at three local schools has blossomed into a movement spanning 50+ schools across the Western Cape. Our founders recognized that many children in under-resourced communities had limited access to practical environmental education and fresh, nutritious food.</p>
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>At Green Futures Initiative, we believe that sustainable communities start with education and hands-on involvement. We work with local neighborhoods to establish community gardens that provide fresh produce, educational opportunities, and a gathering space for residents.</p>
+            <p>Our vision is a future where every community has access to green spaces, environmental education, and the tools to create sustainable food systems.</p>
+        </div>
+    </section>
 
-                <p>Today, we continue to grow, driven by our belief that every child deserves the opportunity to connect with nature and learn skills that will sustain them for life.</p>
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>We prioritize environmentally responsible practices in all our programs and operations.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>We believe in the power of community-led initiatives and collaborative problem-solving.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3>Education</h3>
+                    <p>We're committed to providing accessible environmental education for all ages.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Inclusion</h3>
+                    <p>We create welcoming spaces where everyone can participate and contribute.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="mission-vision">
-            <div class="container">
-                <div class="mv-grid">
-                    <div class="mv-item">
-                        <h3>Our Mission</h3>
-                        <p>To empower communities through hands-on environmental education and the creation of sustainable food gardens in schools, fostering a generation of environmentally conscious leaders.</p>
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
+                    <div class="team-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Executive Director</p>
+                        <p>Sarah founded Green Futures Initiative in 2015 with a vision to transform urban spaces.</p>
                     </div>
-                    <div class="mv-item">
-                        <h3>Our Vision</h3>
-                        <p>A future where every young South African has the knowledge, skills, and opportunity to be an active guardian of their environment and contribute to local food security.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
+                    <div class="team-info">
+                        <h3>Michael Chen</h3>
+                        <p>Program Director</p>
+                        <p>Michael oversees our community garden development and educational programs.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
+                    <div class="team-info">
+                        <h3>Elena Rodriguez</h3>
+                        <p>Education Coordinator</p>
+                        <p>Elena develops and implements our environmental education curriculum.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="team">
-            <div class="container">
-                <h2>Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <h4>Sarah Johnson</h4>
-                        <p class="role">Founder & Director</p>
-                        <p>Environmental Science graduate with a passion for community development</p>
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <p>Green Futures Initiative was founded with our first community garden project in the downtown area.</p>
                     </div>
-                    <div class="team-member">
-                        <h4>David Mbatha</h4>
-                        <p class="role">Programme Manager</p>
-                        <p>Former teacher with expertise in educational programme development</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2017</h3>
+                        <p>Launched our School Garden Program, partnering with 5 local schools to bring environmental education to students.</p>
                     </div>
-                    <div class="team-member">
-                        <h4>Lerato Ndlovu</h4>
-                        <p class="role">Volunteer Coordinator</p>
-                        <p>Community organizer with 5 years of experience in volunteer management</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Expanded to 15 community gardens across the city and received the Environmental Excellence Award.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Reached milestone of 5,000+ volunteers engaged and launched our Urban Farming Training program.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Currently operating 28 community gardens and expanding our programs to three neighboring cities.</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>28</h3>
+                    <p>Community Gardens</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5,200+</h3>
+                    <p>Volunteers Engaged</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15</h3>
+                    <p>Partner Schools</p>
+                </div>
+                <div class="stat-item">
+                    <h3>12,500+</h3>
+                    <p>Pounds of Produce</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join Our Mission</h2>
+            <p>Whether you want to volunteer, partner with us, or support our work, there are many ways to get involved.</p>
+            <a href="volunteer.html" class="btn">Become a Volunteer</a>
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Green Futures Initiative. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Green Futures Initiative</h3>
+                    <p>Creating sustainable communities through environmental education and garden development.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: info@greenfutures.org</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: 123 Garden Street, Green City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Green Futures Initiative. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Simple animation for stats counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const statItems = document.querySelectorAll('.stat-item h3');
+            
+            const options = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stat = entry.target;
+                        const target = parseInt(stat.textContent);
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current);
+                            }
+                        }, 30);
+                        
+                        observer.unobserve(stat);
+                    }
+                });
+            }, options);
+            
+            statItems.forEach(stat => {
+                observer.observe(stat);
+            });
+        });
+    </script>
 </body>
 </html>
