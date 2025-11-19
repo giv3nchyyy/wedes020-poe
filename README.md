@@ -6,7 +6,8 @@ A complete, responsive website for Green Futures Initiative - a nonprofit organi
 
 This website showcases the mission, impact, and programs of Green Futures Initiative, providing an engaging platform for volunteers, donors, and community members to connect with the organization.
 
-## 🚀 Live Demo
+## 🚀 Live Demo ( use "index.html" if the link does not work. )
+
 
 [View Live Website](https://your-username.github.io/green-futures-initiative)
 
